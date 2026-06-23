@@ -531,6 +531,7 @@
     "add-node": "添加节点",
     "proactive-health-check": "主动健康检查",
     "passive-health-check": "被动健康检查",
+    "websocket-proxy": "WebSocket代理",
     "health-check-type-http": "HTTP",
     "health-check-type-tcp": "TCP",
     "health-check-path": "请求路径",

@@ -3,6 +3,7 @@ package cloud.apposs.gateway.upstream;
 import cloud.apposs.gateway.GatewayContext;
 import cloud.apposs.gateway.GatewayException;
 import cloud.apposs.gateway.upstream.ai.AIUpstream;
+import cloud.apposs.gateway.upstream.dns.DnsUpstream;
 import cloud.apposs.gateway.upstream.echo.EchoUpstream;
 import cloud.apposs.gateway.upstream.index.IndexUpstream;
 import cloud.apposs.gateway.upstream.node.NodeUpstream;
@@ -54,6 +55,9 @@ public final class UpstreamParser {
             return new EchoUpstream(id, name, context, infomation);
         } else if(UpstreamType.NODE.matched(type)) {
             return new NodeUpstream(id, name, context, infomation);
+        } else if(UpstreamType.DNS.matched(type)) {
+            String service = infomation.getString(DnsUpstream.KEY_SERVICE);
+            return new DnsUpstream(id, name, context, infomation, service);
         } else if(UpstreamType.SERVICE.matched(type)) {
             return new ServiceUpstream(id, name, context, infomation);
         } else if(UpstreamType.AI.matched(type)) {

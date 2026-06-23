@@ -117,3 +117,7 @@ export const loadUpstreamTypeInfo = (value: string) => {
 export const isUpstreamSupportHealthCheck = (value: string) => {
   return ['node'].includes(value)
 }
+
+export const isUpstreamSupportWebSocket = (value: string) => {
+  return ['node', 'service', 'dns'].includes(value)
+}

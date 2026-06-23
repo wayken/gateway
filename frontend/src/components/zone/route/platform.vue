@@ -133,6 +133,13 @@
                     {{ row.rule || '-' }}
                   </div>
                 </div>
+                <div class="field inline-flex-r-c-n" v-if="row.upstream?.websocket">
+                  <div class="label">{{ $t('upstream.websocket-proxy') }}：</div>
+                  <div class="value websocket-badge">
+                    <el-icon><Promotion /></el-icon>
+                    <div class="name">{{ $t('extension.enable') }}</div>
+                  </div>
+                </div>
               </div>
             </template>
           </el-table-column>
@@ -250,6 +257,7 @@ import {
   Delete,
   Search,
   Download,
+  Promotion,
   WarnTriangleFilled
 } from '@element-plus/icons-vue'
 import { useFileDownload } from '@/utils/dom'

@@ -165,6 +165,10 @@ public class Route {
         return this;
     }
 
+    public Upstream upstream() {
+        return this.upstream;
+    }
+
     public String authId() {
         return authId;
     }

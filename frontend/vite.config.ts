@@ -38,7 +38,7 @@ const loadConfig = ({ mode }) => {
       })
     ],
     server: {
-      host: true,
+      host: false,
       port: Number(VITE_APP_PORT),
       open: false
     },

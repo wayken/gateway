@@ -13,6 +13,7 @@ import cloud.apposs.gateway.upstream.UpstreamConstant;
 import cloud.apposs.gateway.upstream.UpstreamType;
 import cloud.apposs.okhttp.*;
 import cloud.apposs.react.React;
+import cloud.apposs.registry.ServiceInstance;
 import cloud.apposs.util.Param;
 import cloud.apposs.util.Proxy;
 
@@ -76,6 +77,15 @@ public class ServiceUpstream extends AbstractUpstream {
             this.discovery.setRule(this.name, rule);
         }
         this.discovery.start();
+    }
+
+    @Override
+    public String chooseWebSocketUrl(String path) {
+        ServiceInstance instance = discovery.choose(serviceName);
+        if (instance == null) {
+            return null;
+        }
+        return "ws://" + instance.getHost() + ":" + instance.getPort() + path;
     }
 
     @Override

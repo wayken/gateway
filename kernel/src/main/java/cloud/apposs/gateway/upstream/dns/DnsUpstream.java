@@ -32,6 +32,23 @@ public class DnsUpstream extends AbstractUpstream {
     }
 
     @Override
+    public String chooseWebSocketUrl(String path) {
+        if (service == null) {
+            return null;
+        }
+        // 将http(s)://domain 转为 ws(s)://domain
+        String wsUrl = service;
+        if (wsUrl.startsWith("https://")) {
+            wsUrl = "wss://" + wsUrl.substring(8);
+        } else if (wsUrl.startsWith("http://")) {
+            wsUrl = "ws://" + wsUrl.substring(7);
+        } else if (!wsUrl.startsWith("ws://") && !wsUrl.startsWith("wss://")) {
+            wsUrl = "ws://" + wsUrl;
+        }
+        return wsUrl + path;
+    }
+
+    @Override
     public React<?> request(GatewayHttpRequest request, GatewayHttpResponse response, GatewayContext context) throws Exception {
         FormEntity formEntity = FormEntity.builder();
         Map<String, String> parameters = request.getParameters();

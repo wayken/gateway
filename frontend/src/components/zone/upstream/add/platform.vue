@@ -233,6 +233,11 @@
               <el-switch v-model="loadFormData.healthy.passive" />
             </el-form-item>
           </template>
+          <template v-if="isUpstreamSupportWebSocket(loadFormData.type)">
+            <el-form-item :label="$t('upstream.websocket-proxy')">
+              <el-switch v-model="loadFormData.websocket" />
+            </el-form-item>
+          </template>
         </div>
       </el-form>
     </div>
@@ -262,7 +267,8 @@ import {
   upstreamAlgorithmList,
   upstreamContentTypeList,
   upstreamServiceTypeList,
-  isUpstreamSupportHealthCheck
+  isUpstreamSupportHealthCheck,
+  isUpstreamSupportWebSocket
 } from '@/hooks/page/useUpstream'
 import { useRequest } from '@/hooks/useRequest'
 import { loadProviderIcon } from '@/config/data/model'
@@ -309,6 +315,7 @@ const loadFormData = reactive<any>({
     passive: false,
     proactive: false
   },
+  websocket: false,
   domain: '',
   code: 200
 })
@@ -425,6 +432,7 @@ const handleSubmit = () => {
         proactive: loadFormData.healthy.proactive,
         passive: loadFormData.healthy.passive
       }
+      params.parameters.websocket = loadFormData.websocket
     } else if (loadFormData.type === 'service') {
       params.parameters.service = {
         type: loadFormData.service.type,
@@ -432,8 +440,10 @@ const handleSubmit = () => {
         server: loadFormData.service.server,
         path: loadFormData.service.path
       }
+      params.parameters.websocket = loadFormData.websocket
     } else if (loadFormData.type === 'dns') {
       params.parameters.domain = loadFormData.domain
+      params.parameters.websocket = loadFormData.websocket
     } else if (loadFormData.type === 'ai') {
       params.parameters.ai = {
         provider: loadFormData.ai.provider,

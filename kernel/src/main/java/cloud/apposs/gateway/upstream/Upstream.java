@@ -27,6 +27,16 @@ public interface Upstream {
     String getType();
 
     /**
+     * 是否支持WebSocket代理转发
+     */
+    boolean isWebSocket();
+
+    /**
+     * 选择一个上游节点并返回其WebSocket URL，仅在isWebSocket()为true时有效
+     */
+    String chooseWebSocketUrl(String path);
+
+    /**
      * 处理HTTP请求，根据处理返回标志
      *
      * @return 异步处理结果

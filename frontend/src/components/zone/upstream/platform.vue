@@ -116,6 +116,13 @@
                     </div>
                   </div>
                 </template>
+                <div class="field inline-flex-r-c-n" v-if="row.websocket">
+                  <div class="label">{{ $t('upstream.websocket-proxy') }}：</div>
+                  <div class="value websocket-badge">
+                    <el-icon><Promotion /></el-icon>
+                    <div class="name">{{ $t('extension.enable') }}</div>
+                  </div>
+                </div>
               </div>
             </template>
           </el-table-column>
@@ -199,7 +206,8 @@ import {
   Edit,
   Delete,
   Search,
-  Download
+  Download,
+  Promotion
 } from '@element-plus/icons-vue'
 import { useFileDownload } from '@/utils/dom'
 import { useRequest } from '@/hooks/useRequest'

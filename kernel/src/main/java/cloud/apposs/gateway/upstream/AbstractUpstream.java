@@ -4,6 +4,8 @@ import cloud.apposs.gateway.GatewayContext;
 import cloud.apposs.util.Param;
 
 public abstract class AbstractUpstream implements Upstream {
+    public static final String KEY_WEBSOCKET = "websocket";
+
     protected final String id;
 
     protected final String type;
@@ -14,12 +16,15 @@ public abstract class AbstractUpstream implements Upstream {
 
     protected final Param configuration;
 
+    protected final boolean websocket;
+
     public AbstractUpstream(String id, String type, String name, GatewayContext context, Param configuration) {
         this.id = id;
         this.type = type;
         this.name = name;
         this.context = context;
         this.configuration = configuration;
+        this.websocket = configuration.getBoolean(KEY_WEBSOCKET, false);
     }
 
     @Override
@@ -35,6 +40,16 @@ public abstract class AbstractUpstream implements Upstream {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public boolean isWebSocket() {
+        return websocket;
+    }
+
+    @Override
+    public String chooseWebSocketUrl(String path) {
+        return null;
     }
 
     @Override

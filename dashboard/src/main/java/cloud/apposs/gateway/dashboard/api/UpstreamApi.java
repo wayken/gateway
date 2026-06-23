@@ -9,7 +9,9 @@ import cloud.apposs.gateway.dashboard.node.INode;
 import cloud.apposs.gateway.dashboard.util.Ids;
 import cloud.apposs.gateway.upstream.UpstreamConstant;
 import cloud.apposs.gateway.upstream.UpstreamType;
+import cloud.apposs.gateway.upstream.AbstractUpstream;
 import cloud.apposs.gateway.upstream.ai.AIUpstream;
+import cloud.apposs.gateway.upstream.dns.DnsUpstream;
 import cloud.apposs.gateway.upstream.echo.EchoUpstream;
 import cloud.apposs.gateway.upstream.index.IndexUpstream;
 import cloud.apposs.gateway.upstream.node.NodeUpstream;
@@ -73,9 +75,14 @@ public class UpstreamApi {
             }  else if (UpstreamType.NODE.matched(type)) {
                 infomation.put(NodeUpstream.KEY_NODES, parameters.getTable(NodeUpstream.KEY_NODES));
                 infomation.put(NodeUpstream.KEY_HEALTHY, parameters.getParam(NodeUpstream.KEY_HEALTHY));
+                infomation.put(AbstractUpstream.KEY_WEBSOCKET, parameters.getBoolean(AbstractUpstream.KEY_WEBSOCKET, false));
+            } else if (UpstreamType.DNS.matched(type)) {
+                infomation.put(DnsUpstream.KEY_SERVICE, parameters.getString("domain"));
+                infomation.put(AbstractUpstream.KEY_WEBSOCKET, parameters.getBoolean(AbstractUpstream.KEY_WEBSOCKET, false));
             } else if (UpstreamType.SERVICE.matched(type)) {
                 infomation.put(ServiceUpstream.KEY_SERVICE, parameters.getParam(ServiceUpstream.KEY_SERVICE));
                 infomation.put(NodeUpstream.KEY_HEALTHY, parameters.getParam(NodeUpstream.KEY_HEALTHY));
+                infomation.put(AbstractUpstream.KEY_WEBSOCKET, parameters.getBoolean(AbstractUpstream.KEY_WEBSOCKET, false));
             } else if (UpstreamType.AI.matched(type)) {
                 infomation.put(AIUpstream.KEY_AI, parameters.getParam(AIUpstream.KEY_AI));
             }
@@ -108,9 +115,14 @@ public class UpstreamApi {
             } else if (UpstreamType.NODE.matched(type)) {
                 infomation.put(NodeUpstream.KEY_NODES, parameters.getTable(NodeUpstream.KEY_NODES));
                 infomation.put(NodeUpstream.KEY_HEALTHY, parameters.getParam(NodeUpstream.KEY_HEALTHY));
+                infomation.put(AbstractUpstream.KEY_WEBSOCKET, parameters.getBoolean(AbstractUpstream.KEY_WEBSOCKET, false));
+            } else if (UpstreamType.DNS.matched(type)) {
+                infomation.put(DnsUpstream.KEY_SERVICE, parameters.getString("domain"));
+                infomation.put(AbstractUpstream.KEY_WEBSOCKET, parameters.getBoolean(AbstractUpstream.KEY_WEBSOCKET, false));
             } else if (UpstreamType.SERVICE.matched(type)) {
                 infomation.put(ServiceUpstream.KEY_SERVICE, parameters.getParam(ServiceUpstream.KEY_SERVICE));
                 infomation.put(NodeUpstream.KEY_HEALTHY, parameters.getParam(NodeUpstream.KEY_HEALTHY));
+                infomation.put(AbstractUpstream.KEY_WEBSOCKET, parameters.getBoolean(AbstractUpstream.KEY_WEBSOCKET, false));
             } else if (UpstreamType.AI.matched(type)) {
                 infomation.put(AIUpstream.KEY_AI, parameters.getParam(AIUpstream.KEY_AI));
             }

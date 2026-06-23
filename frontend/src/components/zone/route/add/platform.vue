@@ -302,6 +302,11 @@
               <el-switch v-model="loadFormData.upstream.healthy.passive" />
             </el-form-item>
           </template>
+          <template v-if="isUpstreamSupportWebSocket(loadFormData.upstream.type)">
+            <el-form-item :label="$t('upstream.websocket-proxy')">
+              <el-switch v-model="loadFormData.upstream.websocket" :disabled="!isUpstreamManual" />
+            </el-form-item>
+          </template>
         </div>
         <!-- 匹配条件 -->
         <div class="card">
@@ -370,7 +375,8 @@ import {
   upstreamAlgorithmList,
   upstreamContentTypeList,
   upstreamServiceTypeList,
-  isUpstreamSupportHealthCheck
+  isUpstreamSupportHealthCheck,
+  isUpstreamSupportWebSocket
 } from '@/hooks/page/useUpstream'
 import { useRequest } from '@/hooks/useRequest'
 import { loadProviderIcon } from '@/config/data/model'
@@ -399,7 +405,8 @@ const loadFormData = reactive<any>({
         systemPrompt: '',
         userPrompt: ''
       }
-    }
+    },
+    websocket: false
   },
   service: {
   }
@@ -470,6 +477,7 @@ const loadUpstreamList = ref<any[]>([
       passive: false,
       proactive: false
     },
+    websocket: false,
     domain: '',
     contentType: 'text/html',
     code: 200
@@ -629,6 +637,7 @@ const handleSubmit = async (deploy: boolean) => {
           proactive: loadFormData.upstream.healthy.proactive,
           passive: loadFormData.upstream.healthy.passive
         }
+        params.upstream.websocket = loadFormData.upstream.websocket
       } else if (upstreamType === 'service') {
         params.upstream.service = {
           type: loadFormData.upstream.service.type,
@@ -636,8 +645,10 @@ const handleSubmit = async (deploy: boolean) => {
           server: loadFormData.upstream.service.server,
           path: loadFormData.upstream.service.path
         }
+        params.upstream.websocket = loadFormData.upstream.websocket
       } else if (upstreamType === 'dns') {
         params.upstream.domain = loadFormData.upstream.domain
+        params.upstream.websocket = loadFormData.upstream.websocket
       } else if (upstreamType === 'ai') {
         params.upstream.ai = {
           provider: loadFormData.upstream.ai.provider,

@@ -531,6 +531,7 @@
     "add-node": "Add Node",
     "proactive-health-check": "Proactive Health Check",
     "passive-health-check": "Passive Health Check",
+    "websocket-proxy": "WebSocket Proxy",
     "health-check-type-http": "HTTP",
     "health-check-type-tcp": "TCP",
     "health-check-path": "Request Path",
