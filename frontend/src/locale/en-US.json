@@ -138,6 +138,7 @@
       "operators": "Operators",
       "expression": "Expression",
       "add-expression": "Add Expression",
+      "edit-expression": "Edit Expression",
       "field": {
         "ip": "Source IP",
         "url": "URL",

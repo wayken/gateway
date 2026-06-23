@@ -138,6 +138,7 @@
       "operators": "运算符",
       "expression": "表达式",
       "add-expression": "添加表达式",
+      "edit-expression": "编辑表达式",
       "field": {
         "ip": "IP源地址",
         "url": "URL",
