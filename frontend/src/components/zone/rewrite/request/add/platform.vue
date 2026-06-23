@@ -50,7 +50,7 @@
             <el-icon><Tickets /></el-icon>
             <div class="name">{{ $t('protection.rule.rule-if') }}</div>
           </div>
-          <a-rule-mvel ref="ruleMvelRef"/>
+          <a-rule-mvel ref="ruleMvelRef" />
         </div>
         <div class="card">
           <div class="title">

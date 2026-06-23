@@ -49,13 +49,24 @@
     }
   }
   .expression {
-    .name {
+    .expression-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin: 12px 0 12px 12px;
+    }
+    .name {
+      margin: 0;
     }
     .preview {
       border-radius: 5px;
       padding: 18px 12px;
       background-color: var(--var-theme-primary-1);
+    }
+    .preview-edit {
+      .preview-edit-actions {
+        margin-top: 8px;
+      }
     }
   }
   .nodata {

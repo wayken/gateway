@@ -87,8 +87,18 @@
       </div>
     </el-form>
     <div v-if="loadRuleList.length > 0" class="expression">
-      <div class="name">{{ $t('rule.mvel.expression') }}</div>
-      <div class="preview">{{ loadPreviewExression }}</div>
+      <div class="expression-header">
+        <div class="name">{{ $t('rule.mvel.expression') }}</div>
+        <el-button v-if="!isEditingExpression" type="primary" link @click="handleEditExpression">编辑表达式</el-button>
+      </div>
+      <div v-if="!isEditingExpression" class="preview">{{ loadPreviewExression }}</div>
+      <div v-else class="preview-edit">
+        <el-input v-model="editExpressionText" type="textarea" :autosize="{ minRows: 2 }" />
+        <div class="preview-edit-actions">
+          <el-button type="primary" size="small" @click="handleSaveExpression">{{ $t('common.save') }}</el-button>
+          <el-button size="small" @click="isEditingExpression = false">{{ $t('common.cancel') }}</el-button>
+        </div>
+      </div>
     </div>
     <div v-if="loadRuleList.length === 0" class="nodata">
       <a-button :icon="Plus" @click="handleAddRule({ field: 'http.path', operator: '==', value: '' }, 0, true)">
@@ -131,6 +141,8 @@ const loadFieldValueSelectOptions = ref<{ [key: string]: any }>({})
 const i18n = useI18n()
 const formRef = ref()
 const { ioload } = useRequest()
+const isEditingExpression = ref(false)
+const editExpressionText = ref('')
 const loadPreviewExression = computed(() => {
   return generateExpression(loadRuleList.value)
 })
@@ -219,6 +231,15 @@ const handleOperatorUpdate = (value: string, data: any) => {
     return
   }
   loadFieldValueSelect.value = null
+}
+
+const handleEditExpression = () => {
+  editExpressionText.value = loadPreviewExression.value
+  isEditingExpression.value = true
+}
+const handleSaveExpression = () => {
+  loadRuleList.value = parseExpression(editExpressionText.value)
+  isEditingExpression.value = false
 }
 
 const handleExpreassionRead = () => {
