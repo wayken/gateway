@@ -1,0 +1,358 @@
+[
+  {
+    "name": "system-management",
+    "children": [
+      {
+        "name": "website",
+        "permission": "system:website:list",
+        "children": [
+          {
+            "name": "add-website",
+            "permission": "system:website:add"
+          },
+          {
+            "name": "edit-website",
+            "permission": "system:website:edit"
+          },
+          {
+            "name": "delete-website",
+            "permission": "system:website:delete"
+          }
+        ]
+      },
+      {
+        "name": "tool",
+        "permission": "system:tool:list"
+      },
+      {
+        "name": "authority",
+        "permission": "system:authority:list",
+        "children": [
+          {
+            "name": "user-list",
+            "permission": "system:authority:user:list",
+            "children": [
+              {
+                "name": "add-user",
+                "permission": "system:authority:user:add"
+              },
+              {
+                "name": "edit-user",
+                "permission": "system:authority:user:edit"
+              },
+              {
+                "name": "delete-user",
+                "permission": "system:authority:user:delete"
+              }
+            ]
+          },
+          {
+            "name": "role-list",
+            "permission": "system:authority:role:list",
+            "children": [
+              {
+                "name": "add-role",
+                "permission": "system:authority:role:add"
+              },
+              {
+                "name": "edit-role",
+                "permission": "system:authority:role:edit"
+              },
+              {
+                "name": "delete-role",
+                "permission": "system:authority:role:delete"
+              }
+            ]
+          },
+          {
+            "name": "permissions",
+            "permission": "system:authority:permissions:list"
+          }
+        ]
+      },
+      {
+        "name": "audit",
+        "permission": "system:audit:list",
+        "children": [
+          {
+            "name": "session",
+            "permission": "system:audit:session:list"
+          },
+          {
+            "name": "operation",
+            "permission": "system:audit:operation:list"
+          }
+        ]
+      },
+      {
+        "name": "service",
+        "permission": "system:service:list"
+      },
+      {
+        "name": "setting",
+        "permission": "system:setting:list",
+        "children": [
+          {
+            "name": "ipgroup",
+            "permission": "system:setting:ipgroup:list",
+            "children": [
+              {
+                "name": "add-ipgroup",
+                "permission": "system:setting:ipgroup:add"
+              },
+              {
+                "name": "edit-ipgroup",
+                "permission": "system:setting:ipgroup:edit"
+              },
+              {
+                "name": "delete-ipgroup",
+                "permission": "system:setting:ipgroup:delete"
+              }
+            ]
+          },
+          {
+            "name": "certificate",
+            "permission": "system:setting:certificate:list",
+            "children": [
+              {
+                "name": "add-certificate",
+                "permission": "system:setting:certificate:add"
+              },
+              {
+                "name": "edit-certificate",
+                "permission": "system:setting:certificate:edit"
+              },
+              {
+                "name": "delete-certificate",
+                "permission": "system:setting:certificate:delete"
+              }
+            ]
+          },
+          {
+            "name": "auth",
+            "permission": "system:setting:auth:list",
+            "children": [
+              {
+                "name": "add-auth",
+                "permission": "system:setting:auth:add"
+              },
+              {
+                "name": "edit-auth",
+                "permission": "system:setting:auth:edit"
+              },
+              {
+                "name": "delete-auth",
+                "permission": "system:setting:auth:delete"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "website-management",
+    "children": [
+      {
+        "name": "route",
+        "permission": "website:route:list",
+        "children": [
+          {
+            "name": "add-route",
+            "permission": "website:route:add"
+          },
+          {
+            "name": "edit-route",
+            "permission": "website:route:edit"
+          },
+          {
+            "name": "delete-route",
+            "permission": "website:route:delete"
+          }
+        ]
+      },
+      {
+        "name": "upstream",
+        "permission": "website:upstream:list",
+        "children": [
+          {
+            "name": "add-upstream",
+            "permission": "website:upstream:add"
+          },
+          {
+            "name": "edit-upstream",
+            "permission": "website:upstream:edit"
+          },
+          {
+            "name": "delete-upstream",
+            "permission": "website:upstream:delete"
+          }
+        ]
+      },
+      {
+        "name": "protection",
+        "permission": "website:protection:list",
+        "children": [
+          {
+            "name": "waf-rule",
+            "permission": "website:protection:rule:list",
+            "children": [
+              {
+                "name": "add-rule",
+                "permission": "website:protection:rule:add"
+              },
+              {
+                "name": "edit-rule",
+                "permission": "website:protection:rule:edit"
+              },
+              {
+                "name": "delete-rule",
+                "permission": "website:protection:rule:delete"
+              }
+            ]
+          },
+          {
+            "name": "limit",
+            "permission": "website:protection:limit:list",
+            "children": [
+              {
+                "name": "add-limit",
+                "permission": "website:protection:limit:add"
+              },
+              {
+                "name": "edit-limit",
+                "permission": "website:protection:limit:edit"
+              },
+              {
+                "name": "delete-limit",
+                "permission": "website:protection:limit:delete"
+              }
+            ]
+          },
+          {
+            "name": "semantics",
+            "permission": "website:protection:semantics:list",
+            "children": [
+              {
+                "name": "add-semantics",
+                "permission": "website:protection:semantics:add"
+              },
+              {
+                "name": "edit-semantics",
+                "permission": "website:protection:semantics:edit"
+              },
+              {
+                "name": "delete-semantics",
+                "permission": "website:protection:semantics:delete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "cache",
+        "permission": "website:cache:list",
+        "children": [
+          {
+            "name": "cache-rule",
+            "permission": "website:cache:rule:list",
+            "children": [
+              {
+                "name": "add-rule",
+                "permission": "website:cache:rule:add"
+              },
+              {
+                "name": "edit-rule",
+                "permission": "website:cache:rule:edit"
+              },
+              {
+                "name": "delete-rule",
+                "permission": "website:cache:rule:delete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "rewrite",
+        "permission": "website:rewrite:list",
+        "children": [
+          {
+            "name": "redirect-rule",
+            "permission": "website:rewrite:redirect:list",
+            "children": [
+              {
+                "name": "add-rule",
+                "permission": "website:rewrite:redirect:add"
+              },
+              {
+                "name": "edit-rule",
+                "permission": "website:rewrite:redirect:edit"
+              },
+              {
+                "name": "delete-rule",
+                "permission": "website:rewrite:redirect:delete"
+              }
+            ]
+          },
+          {
+            "name": "request-rewrite",
+            "permission": "website:rewrite:request:list",
+            "children": [
+              {
+                "name": "add-rewrite-request",
+                "permission": "website:rewrite:request:add"
+              },
+              {
+                "name": "edit-rewrite-request",
+                "permission": "website:rewrite:request:edit"
+              },
+              {
+                "name": "delete-rewrite-request",
+                "permission": "website:rewrite:request:delete"
+              }
+            ]
+          },
+          {
+            "name": "response-rewrite",
+            "permission": "website:rewrite:response:list",
+            "children": [
+              {
+                "name": "add-rewrite-response",
+                "permission": "website:rewrite:response:add"
+              },
+              {
+                "name": "edit-rewrite-response",
+                "permission": "website:rewrite:response:edit"
+              },
+              {
+                "name": "delete-rewrite-response",
+                "permission": "website:rewrite:response:delete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "plugin",
+        "permission": "website:plugin:list",
+        "children": [
+          {
+            "name": "edit-plugin",
+            "permission": "website:plugin:edit"
+          }
+        ]
+      },
+      {
+        "name": "page",
+        "permission": "website:page:list",
+        "children": [
+          {
+            "name": "edit-page",
+            "permission": "website:page:edit"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,133 @@
+.a-website {
+  &.platform {
+    flex: 1;
+    .head {
+      height: 42px;
+      padding: 0 22px;
+      background-color: var(--var-card-background-color);
+    }
+    .content {
+      flex: 1;
+      padding: 4px;
+      overflow: auto;
+      position: relative;
+      .id, .zone {
+        cursor: pointer;
+        .name {
+          flex: 1;
+          margin-left: 8px;
+        }
+        > svg {
+          width: 42px;
+          height: 42px;
+          flex-shrink: 0;
+          color: var(--var-theme-primary-4);
+        }
+        &:hover {
+          color: var(--var-theme-primary-4);
+        }
+        > i {
+          opacity: 0;
+          font-size: 18px;
+        }
+      }
+      .match {
+        > div {
+          display: inline-flex;
+          padding: 2px 8px;
+          margin: 0 8px 4px 0;
+          border-radius: 3px;
+          color: var(--var-theme-primary-4);
+          border: 1px solid var(--var-theme-primary-4);
+          background-color: var(--var-theme-primary-1);
+        }
+      }
+      .status {
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        padding: 4px 10px;
+        border-radius: 3px;
+        &.is-actived {
+          background-color: #67c23a;
+        }
+        &.is-holded {
+          background-color: #f56c6c;
+        }
+        .name {
+          margin-left: 6px;
+        }
+      }
+      tbody {
+        tr {
+          &:hover {
+            .id {
+              > i {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.device {
+    flex: 1;
+    .head {
+      height: 42px;
+      padding: 0 22px;
+      background-color: var(--var-card-background-color);
+    }
+    .content {
+      flex: 1;
+      padding: 4px;
+      overflow: auto;
+      position: relative;
+      .card {
+        margin: 4px 0;
+        padding: 10px 8px;
+        border-radius: 5px;
+        background-color: var(--var-card-background-color);
+        > svg {
+          width: 54px;
+          height: 54px;
+          color: var(--var-theme-primary-4);
+        }
+        .source {
+          flex: 1;
+          margin-left: 8px;
+        }
+        .infomation {
+          .name {
+            flex: 1;
+          }
+          .status {
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            &.is-actived {
+              background-color: #67c23a;
+            }
+            &.is-holded {
+              background-color: #f56c6c;
+            }
+            .name {
+              margin-left: 6px;
+            }
+          }
+        }
+        .metadata {
+          margin-top: 8px;
+          .remark {
+            color: $var-color-text-primary;
+          }
+        }
+      }
+    }
+  }
+}

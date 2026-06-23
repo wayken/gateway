@@ -1,0 +1,7 @@
+{
+	"host": "xxx.com",
+	"path": "/*",
+	"methods": ["GET,POST"],
+	"status": 1,
+	"upstream_id": "1"
+}

@@ -1,0 +1,75 @@
+.a-zone-rewrite-response {
+  &.platform {
+    flex: 1;
+    .head {
+      height: 42px;
+      padding: 0 22px;
+      background-color: var(--var-card-background-color);
+    }
+    .content {
+      flex: 1;
+      padding: 4px;
+      overflow: auto;
+      position: relative;
+      .status {
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        padding: 4px 10px;
+        border-radius: 3px;
+        &.is-enable {
+          background-color: #67c23a;
+        }
+        &.is-disable {
+          background-color: #f56c6c;
+        }
+        .name {
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+  &.device {
+    flex: 1;
+    overflow: hidden;
+    .head {
+      height: 42px;
+      padding: 0 22px;
+      background-color: var(--var-card-background-color);
+    }
+    .content {
+      flex: 1;
+      padding: 4px;
+      overflow: auto;
+      position: relative;
+      .card {
+        margin: 4px 0;
+        padding: 10px 8px;
+        border-radius: 5px;
+        background-color: var(--var-card-background-color);
+        > svg {
+          width: 54px;
+          height: 54px;
+          color: var(--var-theme-primary-4);
+        }
+        .source {
+          flex: 1;
+          margin-left: 8px;
+        }
+        .infomation {
+          .name {
+            flex: 1;
+          }
+        }
+        .metadata {
+          margin-top: 8px;
+          .remark {
+            color: $var-color-text-primary;
+          }
+        }
+      }
+    }
+  }
+}

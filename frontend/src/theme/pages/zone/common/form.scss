@@ -1,0 +1,42 @@
+.a-zone-common-form {
+  &.platform {
+    flex: 1;
+    overflow: auto;
+    .head {
+      margin: 18px 22px 10px 22px;
+    }
+    .content {
+      flex: 1;
+      overflow: auto;
+      padding: 8px 12px;
+      .card {
+        border-radius: 5px;
+        padding: 16px 24px;
+        margin-bottom: 4px;
+        border: 1px solid var(--var-menu-border-color);
+        background-color: var(--var-card-background-color);
+        .title {
+          display: flex;
+          align-items: center;
+          font-size: 15px;
+          margin-bottom: 18px;
+          > i {
+            color: var(--var-theme-primary-4);
+            margin-right: 6px;
+          }
+        }
+      }
+    }
+    .footer {
+      height: 42px;
+      padding: 0 22px;
+      border-top: 1px solid var(--var-menu-border-color);
+      background-color: var(--var-card-background-color);
+    }
+  }
+  &.device {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+}

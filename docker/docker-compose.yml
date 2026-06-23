@@ -1,0 +1,122 @@
+services:
+  # Zookeeper 服务，供 kernel 和 dashboard 使用
+  zookeeper:
+    image: zookeeper:3.8
+    container_name: teambeit-gateway-zookeeper
+    networks:
+      - teambeit-gateway-network
+    ports:
+      - "2181:2181" # Zookeeper 默认端口
+    volumes:
+      - zookeeper-data:/data
+      - zookeeper-datalog:/datalog
+    restart: unless-stopped
+
+  # MySQL 服务，dashboard 依赖，启动时自动初始化表结构
+  mysql:
+    image: mysql:8.0
+    container_name: teambeit-gateway-mysql
+    networks:
+      - teambeit-gateway-network
+    ports:
+      - "3306:3306" # MySQL 默认端口
+    environment:
+      LANG: C.UTF-8
+      MYSQL_ROOT_PASSWORD: root123 # root 用户密码
+      MYSQL_DATABASE: gateway      # 默认数据库名
+      TZ: Asia/Shanghai            # 时区
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+    volumes:
+      - mysql-data:/var/lib/mysql           # 数据持久化挂载
+      - ./mysql:/docker-entrypoint-initdb.d # 初始化 SQL 挂载
+    restart: unless-stopped
+
+  # Redis 服务，供 kernel、dashboard 等使用
+  redis:
+    image: redis:7.2
+    container_name: teambeit-gateway-redis
+    networks:
+      - teambeit-gateway-network
+    ports:
+      - "6379:6379"       # Redis 默认端口
+    volumes:
+      - redis-data:/data  # 数据持久化挂载
+    restart: unless-stopped
+
+  # 网关内核服务，依赖 zookeeper
+  kernel:
+    build:
+      context: ..
+      dockerfile: docker/kernel/Dockerfile
+    image: teambeit-gateway-kernel:latest
+    container_name: teambeit-gateway-kernel
+    depends_on:
+      - zookeeper
+      - redis
+    networks:
+      - teambeit-gateway-network
+    environment:
+      ZOOKEEPER_HOST: zookeeper # zookeeper 服务主机名
+    ports:
+      - "8892:8892"
+      - "8894:8894"
+      - "8900:8900"
+    restart: unless-stopped
+
+  # 网关管理后台 dashboard，依赖 zookeeper 和 mysql
+  dashboard:
+    build:
+      context: ..
+      dockerfile: docker/dashboard/Dockerfile
+    image: teambeit-gateway-dashboard:latest
+    container_name: teambeit-gateway-dashboard
+    depends_on:
+      - zookeeper
+      - mysql
+      - redis
+    networks:
+      - teambeit-gateway-network
+    environment:
+      ZOOKEEPER_HOST: zookeeper # zookeeper 服务主机名
+      MYSQL_HOST: mysql         # mysql 服务主机名
+      MYSQL_DB: gateway         # 数据库名
+      MYSQL_USER: root          # 用户名
+      MYSQL_PASSWORD: root123   # 密码
+    ports:
+      - "8895:8895"
+    restart: unless-stopped
+
+  # 前端服务，依赖 dashboard，使用 nginx 提供静态资源
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/frontend/Dockerfile
+    image: teambeit-gateway-frontend:latest
+    container_name: teambeit-gateway-frontend
+    depends_on:
+      - dashboard
+    networks:
+      - teambeit-gateway-network
+    ports:
+      - "8080:80" # 前端访问端口
+    restart: unless-stopped
+
+networks:
+  teambeit-gateway-network:
+    driver: bridge
+
+volumes:
+  zookeeper-data:
+    driver: local
+    name: teambeit-gateway-zookeeper-data
+  zookeeper-datalog:
+    driver: local
+    name: teambeit-gateway-zookeeper-datalog
+  mysql-data:
+    driver: local
+    name: teambeit-gateway-mysql-data
+  redis-data:
+    driver: local
+    name: teambeit-gateway-redis-data

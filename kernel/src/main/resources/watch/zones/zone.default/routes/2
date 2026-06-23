@@ -1,0 +1,7 @@
+{
+	"host": "aaa.com",
+	"path": "/hello",
+	"methods": ["GET,POST"],
+	"status": 1,
+	"upstream_id": "2"
+}

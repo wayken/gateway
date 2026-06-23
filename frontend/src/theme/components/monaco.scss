@@ -1,0 +1,26 @@
+@use "../common/variable.scss" as *;
+
+.a-monaco {
+  .el-drawer {
+    &__header {
+      margin-bottom: 0;
+      padding: 18px 22px 18px 22px;
+      color: var(--var-default-font-color);
+      border-bottom: 1px solid var(--var-menu-border-color);
+    }
+    &__footer {
+      padding: 12px 22px 12px 22px;
+      border-top: 1px solid var(--var-menu-border-color);
+    }
+  }
+  .head {
+    font-size: 16px;
+  }
+  .content {
+    height: 100%;
+    background-color: #1e1e1e;
+  }
+  .monaco {
+    flex: 1;
+  }
+}

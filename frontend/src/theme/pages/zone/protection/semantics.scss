@@ -1,0 +1,109 @@
+.a-zone-protection-semantics {
+  &.platform {
+    flex: 1;
+    overflow: auto;
+    padding: 12px 24px;
+    .card {
+      margin: 4px 0;
+      cursor: pointer;
+      padding: 24px 24px;
+      border-radius: 5px;
+      background-color: var(--var-card-background-color);
+      &:hover {
+        box-shadow: rgba(145, 158, 171, 0.2) 0px 4px 10px;
+      }
+    }
+    .source {
+      > i {
+        font-size: 16px;
+        margin-right: 6px;
+      }
+      .name {
+        font-size: 16px;
+      }
+    }
+    .matched {
+      margin: 24px 0 24px 0;
+      .title {
+        width: 128px;
+      }
+      .value {
+        color: #fff;
+        padding: 2px 12px;
+        border-radius: 3px;
+        background-color: #0fc6c2;
+      }
+    }
+    .status {
+      .title {
+        width: 128px;
+      }
+      .value {
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 3px;
+        background-color: #67c23a;
+        > i {
+          font-size: 14px;
+          margin-right: 4px;
+        }
+        .name {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  &.device {
+    flex: 1;
+    padding: 4px 8px;
+    overflow: auto;
+    .card {
+      margin: 4px 0;
+      padding: 14px 18px;
+      border-radius: 5px;
+      background-color: var(--var-card-background-color);
+      &:hover {
+        box-shadow: rgba(145, 158, 171, 0.2) 0px 4px 10px;
+      }
+    }
+    .source {
+      > i {
+        font-size: 16px;
+        margin-right: 6px;
+      }
+      .name {
+        font-size: 16px;
+      }
+    }
+    .matched {
+      margin: 24px 0 24px 0;
+      .title {
+        width: 128px;
+      }
+      .value {
+        color: #fff;
+        padding: 2px 12px;
+        border-radius: 3px;
+        background-color: #0fc6c2;
+      }
+    }
+    .status {
+      .title {
+        width: 128px;
+      }
+      .value {
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 3px;
+        background-color: #67c23a;
+        > i {
+          font-size: 14px;
+          margin-right: 4px;
+        }
+        .name {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

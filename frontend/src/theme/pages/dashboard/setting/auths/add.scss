@@ -1,0 +1,15 @@
+.a-setting-auths--add {
+  &.platform {
+    .el-dialog__body {
+      overflow: auto;
+      max-height: 580px;
+      padding: 20px 24px;
+    }
+    .label {
+      i {
+        font-size: 18px;
+        margin-left: 4px;
+      }
+    }
+  }
+}

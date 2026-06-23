@@ -1,0 +1,5 @@
+{
+    "type": "echo",
+    "name": "EchoUpstream",
+    "content": "Hello World Upstream"
+}

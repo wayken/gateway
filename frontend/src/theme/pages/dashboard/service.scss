@@ -1,0 +1,16 @@
+.a-service {
+  flex: 1;
+  height: 100%;
+  &.platform {
+    flex: 1;
+    overflow: auto;
+    padding: 12px 12px;
+    position: relative;
+  }
+  &.device {
+    flex: 1;
+    overflow: auto;
+    padding: 12px 12px;
+    position: relative;
+  }
+}

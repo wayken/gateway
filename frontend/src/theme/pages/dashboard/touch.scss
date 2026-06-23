@@ -1,0 +1,43 @@
+.a-touch {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: fixed;
+  right: 26px;
+  bottom: 32px;
+  z-index: 9999;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+  background-color: rgba(0, 0, 0, .8);
+  > div {
+    position: relative;
+    top: 19px;
+    left: 14px;
+    width: 24px;
+    height: 24px;
+    span {
+      position: relative;
+      top: 0;
+      display: block;
+      height: 1px;
+      background-color: #ffffff;
+      transition: transform 0.2s ease-in-out, top 0.2s ease-in-out 0.2s;
+    }
+    span:nth-child(2) {
+      top: 10px;
+    }
+  }
+  .is-show {
+    span:nth-child(1) {
+      top: 6px;
+      transform: rotate(45deg);
+      transition: top 0.2s ease-in-out, transform 0.2s ease-in-out 0.2s;
+    }
+    span:nth-child(2) {
+      top: 5px;
+      transform: rotate(-45deg);
+      transition: top 0.2s ease-in-out, transform 0.2s ease-in-out 0.2s;
+    }
+  }
+}

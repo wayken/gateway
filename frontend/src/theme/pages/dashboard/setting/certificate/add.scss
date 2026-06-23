@@ -1,0 +1,13 @@
+.a-setting-certificate--add {
+  &.platform {
+    .el-dialog__body {
+      padding: 20px 24px;
+    }
+    .label {
+      i {
+        font-size: 18px;
+        margin-left: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,305 @@
+@use "../common/variable.scss" as *;
+
+.el-input {
+  &__inner {
+    color: var(--var-default-font-color);
+  }
+  &__wrapper {
+    background-color: var(--var-card-background-color);
+  }
+  &-group__prepend {
+    background-color: var(--var-card-background-color);
+  }
+  &.is-round {
+    .el-input__wrapper {
+      border-radius: 20px;
+    }
+  }
+}
+
+.el-input-number {
+  width: 100%;
+}
+
+.el-textarea {
+  &__inner {
+    color: var(--var-default-font-color);
+    background-color: var(--var-card-background-color);
+  }
+  .el-input__count {
+    background-color: transparent;
+  }
+}
+
+.el-select {
+  width: 100%;
+  &__popper {
+    &.el-popper {
+      background-color: var(--var-module-background-color);
+    }
+  }
+  &-dropdown {
+    &__item {
+      color: var(--var-default-font-color);
+      &.hover, &:hover {
+        background-color: var(--var-menu-actived-color);
+      }
+    }
+  }
+}
+
+.el-popper{
+  &.is-light {
+    background-color: var(--var-card-background-color);
+    .el-popper__arrow::before {
+      background: var(--var-card-background-color);
+    }
+  }
+}
+
+.el-dropdown {
+  &-menu {
+    background-color: var(--var-card-background-color);
+    &__item {
+      color: var(--var-default-font-color);
+      &:not(.is-disabled):focus {
+        background-color: var(--var-menu-actived-color);
+      }
+    }
+  }
+}
+
+.el-dialog {
+  border-radius: 5px;
+  background-color: var(--var-card-background-color);
+  &__header {
+    margin: 0;
+    border-bottom: 1px solid var(--var-menu-border-color);
+  }
+  &__title {
+    color: var(--var-default-font-color);
+  }
+  &__body {
+    padding: 0;
+    color: var(--var-default-font-color);
+  }
+  &__footer {
+    padding: 14px 20px 14px 0;
+    border-top: 1px solid var(--var-menu-border-color);
+  }
+}
+
+.el-tree {
+  flex: 1;
+  overflow: auto;
+  color: var(--var-default-font-color);
+  background: none;
+  &-node {
+    &__content {
+      height: 42px;
+      cursor: default;
+      &:hover {
+        background-color: var(--var-module-hover-color) !important;
+      }
+    }
+    &:focus {
+      .el-tree-node__content {
+        background: none;
+      }
+    }
+  }
+  &--highlight-current {
+    .el-tree-node.is-current > .el-tree-node__content {
+      color: var(--var-theme-primary-4);
+      background-color: var(--var-module-hover-color);
+    }
+  }
+}
+
+.el-drawer {
+  background-color: var(--var-card-background-color);
+  &__body {
+    padding: 0;
+  }
+}
+
+.el-icon {
+  position: unset;
+}
+
+.el-divider {
+  &__text {
+    color: var(--var-default-font-color);
+    background-color: var(--var-card-background-color);
+  }
+}
+
+.el-loading {
+  &-mask {
+    background-color: var(--var-loading-background-color)
+  }
+  &-spinner .path {
+    stroke: var(--var-theme-primary-4);
+  }
+}
+
+.el-scrollbar__view {
+  height: 100%;
+}
+
+.el-breadcrumb {
+  &__inner {
+    &.is-link {
+      font-weight: normal;
+      color: var(--var-theme-primary-4);
+    }
+  }
+}
+
+.el-message-box {
+  border: 1px solid var(--var-menu-border-color);
+  background-color: var(--var-card-background-color);
+  &__title {
+    color: var(--var-default-font-color);
+  }
+  &__content {
+    color: var(--var-default-font-color);
+  }
+}
+
+.el-notification {
+  background-color: var(--var-card-background-color);
+  &__title {
+    color: var(--var-default-font-color);
+  }
+}
+
+.table {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: $var-card-border-raduis;
+  background-color: var(--var-card-background-color);
+  .el-table {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: var(--var-default-font-color);
+    background-color: var(--var-card-background-color);
+    tr {
+      background-color: var(--var-card-background-color);
+      &:hover>td.el-table__cell {
+        background-color: var(--var-module-hover-color);
+      }
+    }
+    th, td {
+      background-color: var(--var-card-background-color);
+      &.el-table__cell {
+        border-bottom-color: var(--var-menu-border-color);
+      }
+      &.el-table-fixed-column--right {
+        background-color: var(--var-card-background-color);
+      }
+    }
+    .cell {
+      padding: 0 10px !important;
+    }
+    thead {
+      th {
+        font-weight: normal;
+        padding: 10px 0 !important;
+      }
+    }
+    &__empty-block {
+      display: none;
+    }
+    &__inner-wrapper::before {
+      background-color: var(--var-menu-border-color);
+    }
+    &--striped {
+      .el-table__body tr.el-table__row--striped td.el-table__cell {
+        background-color: var(--var-module-hover-color);
+      }
+    }
+    .index {
+      color: $var-color-text-primary;
+    }
+  }
+  table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--var-card-background-color);
+    thead {
+      z-index: 10;
+      position: relative;
+      th {
+        height: 48px;
+        text-align: left;
+        font-weight: 400;
+        top: 0;
+        position: sticky;
+        padding: 0 28px;
+        border-bottom: 1px solid var(--var-menu-border-color);
+        background-color: var(--var-card-background-color);
+      }
+    }
+    tbody {
+      tr {
+        &:hover {
+          background: var(--var-menu-actived-color);
+        }
+      }
+      td {
+        height: 62px;
+        padding: 0 22px;
+        border-bottom: 1px solid var(--var-menu-border-color);
+      }
+    }
+  }
+}
+
+.pagination {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  padding: 0 18px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: $var-card-border-raduis;
+  background-color: var(--var-card-background-color);
+  .el-pager {
+    li {
+      color: var(--var-default-font-color);
+      background-color: var(--var-card-background-color);
+      &:hover {
+        color: var(--var-theme-primary-4);
+      }
+      &.is-active {
+        color: var(--var-theme-primary-4);
+      }
+    }
+  }
+  .el-pagination {
+    margin-left: auto;
+    button {
+      background-color: var(--var-card-background-color);
+    }
+  }
+}
+
+.app-zoom-in-top-enter-active,
+.app-zoom-in-top-leave-active {
+  opacity: 1;
+  transform: scaleY(1);
+  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center top;
+}
+.app-zoom-in-top-enter,
+.app-zoom-in-top-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+}

@@ -1,0 +1,150 @@
+.a-setting-preference {
+  height: 100%;
+  overflow: auto;
+  &.platform {
+    padding: $var-page-body-padding;
+    .card {
+      padding: 0 28px;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      background-color: var(--var-card-background-color);
+      .field {
+        height: 64px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        .label {
+          flex: 1;
+          color: var(--var-default-font-color);
+        }
+        .value {
+          color: #888;
+        }
+        .theme {
+          display: flex;
+          align-items: center;
+          > div {
+            width: 38px;
+            height: 38px;
+            margin: 0 6px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.blue {
+              box-shadow: 0 0 0 0 #bfdbfe;
+              background-image: linear-gradient(to bottom right, #3B82F6, #2563EB);
+            }
+            &.emerald {
+              box-shadow: 0 0 0 0 #A7F3D0;
+              background-image: linear-gradient(to bottom right, #10B981, #059669);
+            }
+            &.rose {
+              box-shadow: 0 0 0 0 #FECDD3;
+              background-image: linear-gradient(to bottom right, #F43F5E, #E11D48);
+            }
+            &.orange {
+              box-shadow: 0 0 0 0 #FED7AA;
+              background-image: linear-gradient(to bottom right, #F97316, #EA580C);
+            }
+            > i {
+              font-size: 18px;
+              color: #ffffff;
+            }
+          }
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          box-sizing: border-box;
+          right: 0px;
+          bottom: 0;
+          left: 0px;
+          border-bottom: 1px solid #eee;
+          transform: scaleY(0.5);
+        }
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  &.device {
+    padding: 4px 4px;
+    .card {
+      padding: 0 18px;
+      border-radius: 5px;
+      margin-bottom: 8px;
+      background-color: var(--var-card-background-color);
+      .field {
+        height: 64px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        .label {
+          flex: 1;
+          color: var(--var-default-font-color);
+        }
+        .value {
+          color: #888;
+        }
+        .theme {
+          display: flex;
+          align-items: center;
+          > div {
+            width: 38px;
+            height: 38px;
+            margin: 0 6px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &.blue {
+              box-shadow: 0 0 0 0 #bfdbfe;
+              background-image: linear-gradient(to bottom right, #3B82F6, #2563EB);
+            }
+            &.emerald {
+              box-shadow: 0 0 0 0 #A7F3D0;
+              background-image: linear-gradient(to bottom right, #10B981, #059669);
+            }
+            &.rose {
+              box-shadow: 0 0 0 0 #FECDD3;
+              background-image: linear-gradient(to bottom right, #F43F5E, #E11D48);
+            }
+            &.orange {
+              box-shadow: 0 0 0 0 #FED7AA;
+              background-image: linear-gradient(to bottom right, #F97316, #EA580C);
+            }
+            > i {
+              font-size: 18px;
+              color: #ffffff;
+            }
+          }
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          box-sizing: border-box;
+          right: 0px;
+          bottom: 0;
+          left: 0px;
+          border-bottom: 1px solid #eee;
+          transform: scaleY(0.5);
+        }
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.sequence {
+  height: 100%;
+  font-size: 15px;
+  .head {
+    height: 48px;
+    padding: 0 22px;
+    font-size: 18px;
+    border-bottom: 1px solid var(--var-menu-border-color);
+    .close {
+      font-size: 20px;
+      cursor: pointer;
+      &:hover {
+        color: var(--var-theme-primary-4);
+      }
+    }
+  }
+  .content {
+    flex: 1;
+    overflow: auto;
+    padding: 22px 0;
+  }
+  .http {
+    .direction {
+      font-size: 24px;
+      color: var(--var-theme-primary-4);
+    }
+    .wrapper {
+      > i {
+        font-size: 18px;
+        margin-right: 8px;
+        color: var(--var-theme-primary-4);
+      }
+    }
+  }
+  .card {
+    .wrapper {
+      cursor: pointer;
+      padding: 12px 12px;
+      border-radius: 5px;
+      border: 1px solid var(--var-menu-border-color);
+      margin: 0 18px 0 18px;
+      .rule {
+        svg {
+          width: 18px;
+          height: 18px;
+          margin-right: 8px;
+          color: var(--var-theme-primary-4);
+        }
+      }
+      .description {
+        font-size: 14px;
+        color: #909399;
+        margin-top: 8px;
+      }
+      .infomation {
+        color: #fff;
+        font-size: 12px;
+        margin-left: auto;
+        padding: 4px 12px;
+        border-radius: 12px;
+        background-color: #228b49;
+      }
+      &:hover {
+        border-color: var(--var-theme-primary-4);
+      }
+    }
+    .hr {
+      width: 2px;
+      height: 18px;
+      margin: 0 auto;
+      background-color: var(--var-theme-primary-4);
+    }
+  }
+}

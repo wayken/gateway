@@ -1,0 +1,191 @@
+@use "../common/variable.scss" as *;
+
+.a-menu {
+  height: 100%;
+  width: $var-menu-width;
+  overflow-x: hidden;
+  transition: width .3s;
+  border-right: 1px solid var(--var-menu-border-color);
+  background-color: var(--var-card-background-color);
+  .logo {
+    padding-left: 12px;
+    height: $var-page-header-height;
+    img {
+      height: 36px;
+      width: 36px;
+    }
+    .name {
+      font-size: 20px;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+  }
+  .guide {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: -17px;
+    padding-right: 17px;
+    margin-bottom: 14px;
+    > ul {
+      width: $var-menu-width;
+      li {
+        cursor: pointer;
+        .menu {
+          padding-left: 12px;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          height: $var-menu-item-height;
+          line-height: $var-menu-item-height;
+          position: relative;
+          > svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            transition: all .3s;
+          }
+          .text {
+            opacity: 1;
+            transition: opacity .3s;
+          }
+          .arrow {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            width: 12px;
+            transform: translateY(-50%);
+            transition: transform .3s;
+            &::before {
+              content: "";
+              position: absolute;
+              width: 6px;
+              height: 1.5px;
+              border-radius: 2px;
+              background-color: var(--var-default-font-color);
+              transform: rotate(-45deg) translateX(2.5px);
+              transition: transform .3s;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              width: 6px;
+              height: 1.5px;
+              border-radius: 2px;
+              background-color: var(--var-default-font-color);
+              transform: rotate(45deg) translateX(-2.5px);
+              transition: transform .3s;
+            }
+            &.is-opened {
+              transform: translateY(-2px);
+              &::before {
+                transform: rotate(45deg) translateX(2.5px);
+              }
+              &::after {
+                transform: rotate(-45deg) translateX(-2.5px);
+              }
+            }
+          }
+          &:hover {
+            color: var(--var-theme-primary-4);
+            background-color: var(--var-module-hover-color);
+          }
+        }
+        ul {
+          overflow: hidden;
+          opacity: 1;
+          transition: max-height .3s, opacity .3s;
+          &.is-closed {
+            opacity: 0;
+            max-height: 0 !important;
+          }
+          li {
+            list-style: none;
+            cursor: pointer;
+            padding-left: 38px;
+            height: $var-menu-item-height;
+            line-height: $var-menu-item-height;
+            &:hover {
+              color: var(--var-theme-primary-4);
+              background-color: var(--var-module-hover-color);
+            }
+            &.is-actived {
+              color: var(--var-theme-primary-4);
+              background-color: var(--var-module-hover-color);
+            }
+          }
+        }
+        &.is-actived {
+          .menu {
+            color: var(--var-theme-primary-4);
+            background-color: var(--var-module-hover-color);
+          }
+        }
+      }
+    }
+  }
+  &--popover {
+    left: 64px;
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: top left;
+    width: 240px;
+    z-index: 99;
+    transition: all .3s;
+    background-color: transparent;
+    &.is-show {
+      opacity: 1;
+      visibility: visible;
+    }
+    ul {
+      margin: 0 6px;
+      padding: 6px 0;
+      border-radius: 3px;
+      background-color: var(--var-card-background-color);
+      li {
+        list-style: none;
+        height: 48px;
+        line-height: 48px;
+        cursor: pointer;
+        padding: 0 24px;
+        &:hover {
+          color: var(--var-theme-primary-4);
+          background-color: var(--var-module-hover-color);
+        }
+        &.is-actived {
+          color: var(--var-theme-primary-4);
+          background-color: var(--var-module-hover-color);
+        }
+      }
+    }
+  }
+  &.is-collapsed {
+    width: 66px;
+    .logo {
+      img {
+        width: 36px;
+        height: 36px;
+      }
+      .name {
+        opacity: 0;
+      }
+    }
+    .guide {
+      > ul {
+        li {
+          .menu {
+            > svg {
+              width: 22px;
+              height: 22px;
+              transform: translateX(8px);
+            }
+            .text {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

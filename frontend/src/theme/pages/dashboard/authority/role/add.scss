@@ -1,0 +1,21 @@
+.a-authority-role--add {
+  &.platform {
+    .el-dialog__body {
+      padding: 20px 24px;
+    }
+    .permissions {
+      flex: none;
+      width: 100%;
+      overflow: auto;
+      max-height: 220px;
+      border-radius: 5px;
+      border: 1px solid var(--var-menu-border-color);
+    }
+    .label {
+      i {
+        font-size: 18px;
+        margin-left: 4px;
+      }
+    }
+  }
+}

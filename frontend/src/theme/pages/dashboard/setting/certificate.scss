@@ -1,0 +1,35 @@
+.a-setting-certificate {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  .head {
+    height: 48px;
+    padding: 0 12px;
+    background-color: var(--var-card-background-color);
+  }
+  &.device {
+    .content {
+      flex: 1;
+      margin-top: 8px;
+      overflow: auto;
+      position: relative;
+      background-color: var(--var-card-background-color);
+      > div {
+        padding: 12px 8px;
+        border-bottom: 1px solid var(--var-menu-border-color);
+        .domain {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+  &.platform {
+    .content {
+      flex: 1;
+      padding: 4px;
+      overflow: auto;
+      position: relative;
+    }
+  }
+}

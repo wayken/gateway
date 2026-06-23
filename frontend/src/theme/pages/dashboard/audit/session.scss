@@ -1,0 +1,16 @@
+.a-audit-session {
+  flex: 1;
+  .head {
+    height: 48px;
+    padding: 0 12px;
+    background-color: var(--var-card-background-color);
+  }
+  &.platform {
+    .content {
+      flex: 1;
+      padding: 4px;
+      overflow: auto;
+      position: relative;
+    }
+  }
+}

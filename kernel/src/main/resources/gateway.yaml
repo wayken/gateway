@@ -1,0 +1,90 @@
+gateway:
+  # 网络相关配置
+  network:
+    io_mode: netty
+    # 多少个EventLoop轮询器，主要用于处理各自网络读写数据
+    # 当服务性能不足可提高此配置提升对网络IO的并发处理，但注意EventLoop业务层必须要做到异步，不能有同步阻塞请求
+    eventloop_count: 8
+    # 工作线程池数量
+    worker_count: 1024
+    # 半连接队列数
+    backlog: 2048
+    # 是否允许共用该端口
+    reuse-address: on
+    # 开启此参数，那么客户端在每次发送数据时，无论数据包的大小都会将这些数据发送出去
+    tcp_nodelay: on
+    # 是否采用Linux底层Epoll网络模型，针对底层为NETTY
+    # Netty底层会通过Native方法为调用底层Epoll函数，可以提升性能，减少GC
+    use_linux_epoll: off
+  # 框架相关配置
+  framework:
+    # 网关ID，主要应用于集群，集群内每个网关ID必须唯一
+    id: "0"
+    # 框架数据临时目录，用于存储临时数据，如：上传文件，缓存目录，为空则用系统默认临时目录
+    data_temp_path: ""
+    # 框架数据存储目录，用于存储框架数据，如：前端静态文件，缓存目录，证书文件目录，为空则用当前项目所在目录
+    data_source_path: "C://gateway-data"
+    # 启动网关时是否显示BANNER信息
+    banner: true
+    # 网关服务编码
+    charset: utf-8
+    # HTTP相关配置
+    http:
+      # 网关监听HOST
+      host: 0.0.0.0
+      # 网关监听端口
+      port: 8892
+    # HTTPS相关配置
+    https:
+      # 是否开启HTTPS，注意：开启HTTPS需要在管理平台配置证书
+      enable: true
+      host: 0.0.0.0
+      port: 8894
+    # 服务管理相关配置
+    management:
+      enable: true
+      host: 127.0.0.1
+      port: 8900
+      context_path: /management
+    # 请求转发连接池大小，用于连接复用
+    proxy_pool:
+      pool_size: 12
+      connect_timeout: 12000
+      socket_timeout: 60000
+  # 管理接口相关配置
+  admin:
+    # 管理接口监听HOST
+    host: 0.0.0.0
+    # 管理接口监听端口
+    port: 8893
+  # 插件相关配置
+  plugin:
+    # 插件路径
+    libary: "gateway/kernel/src/main/resources/plugin"
+  # 配置中心监听
+  watch:
+    type: filesystem
+    path: "C:/gateway"
+    # type: zookeeper
+    # path: "/gateway"
+    # servers: 192.168.5.57:2181
+  # 系统日志相关配置，记录网关底层服务框架相关日志
+  syslog:
+    # 日志输出级别，可为FATAL（致命）、ERROR（错误）、WARN（警告）、INFO（信息）、DEBUG（调试）、TRACE（追踪）、OFF（关闭）
+    level: trace
+    # 日志输出终端，可为CONSOLE（控制台）、FILE（文件）
+    appender: console
+    # 日志的存储路径，前提是appender配置为FILE
+    path: C://syslogs-{yyyy-MM-dd}.log
+    # 日志输出模板
+    format: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5.5P %I --- %-32.32c : %m%n%E"
+  # 访问日志相关配置，记录每个请求经过网关的访问日志
+  accesslog:
+    # 是否开启访问日志
+    enable: on
+    # 日志输出终端，可为CONSOLE（控制台）、FILE（文件）
+    appender: console
+    # 访问日志输出路径
+    path: C://accesslogs-{yyyy-MM-dd}.log
+    # 日志输出模板
+    format: "$remote_addr:$remote_port $http_user_agent"

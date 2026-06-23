@@ -1,0 +1,14 @@
+.a-zone-rewrite-response--add {
+  &.platform {
+    flex: 1;
+    overflow: auto;
+    .route {
+      > svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+        color: var(--var-theme-primary-4);
+      }
+    }
+  }
+}

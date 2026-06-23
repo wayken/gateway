@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "name": "silicon",
+    "type": "openai",
+    "system": true,
+    "url": "https://api.siliconflow.cn/v1/chat/completions",
+    "models": [
+      "Qwen/Qwen2.5-7B-Instruct"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "openai",
+    "type": "openai",
+    "system": true,
+    "url": "https://api.openai.com/v1/chat/completions",
+    "models": [
+      "gpt-3.5-turbo"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "deepseek",
+    "type": "openai",
+    "system": true,
+    "url": "https://api.deepseek.com/v1/chat/completions",
+    "models": [
+      "deepseek-chat",
+      "deepseek-reasoner"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "ollama",
+    "type": "openai",
+    "system": true,
+    "url": "http://localhost:11434/v1/chat/completions",
+    "models": [
+      "deepseek-r1:14b",
+      "qwen2.5:14b",
+      "qwen2.5-coder:14b"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "hunyuan",
+    "type": "openai",
+    "system": true,
+    "url": "https://api.hunyuan.cloud.tencent.com/v1/chat/completions",
+    "models": [
+      "hunyuan-pro",
+      "hunyuan-standard",
+      "hunyuan-lite",
+      "hunyuan-standard-256k",
+      "hunyuan-vision",
+      "hunyuan-code",
+      "hunyuan-role",
+      "hunyuan-standard",
+      "hunyuan-turbo"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "baiducloud",
+    "type": "openai",
+    "system": true,
+    "url": "https://qianfan.baidubce.com/v2/chat/completions",
+    "models": [
+      "deepseek-r1",
+      "deepseek-v3"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "gemini",
+    "type": "gemini",
+    "system": true,
+    "url": "https://generativelanguage.googleapis.com/v1/chat/completions",
+    "models": [
+      "gemini-1.5-flash",
+      "gemini-1.5-flash-8b",
+      "gemini-1.5-pro",
+      "gemini-2.0-flash",
+      "gemini-2.0-flash-lite"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "qwenlm",
+    "type": "openai",
+    "system": true,
+    "url": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+    "models": [
+      "qwen-vl-plus",
+      "qwen-coder-plus",
+      "qwen-plus",
+      "qwen-turbo",
+      "qwen-max"
+    ]
+  }
+]

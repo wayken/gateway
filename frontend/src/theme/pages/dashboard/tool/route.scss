@@ -1,0 +1,18 @@
+.a-tool-route {
+  &.platform {
+    flex: 1;
+    overflow: auto;
+    .head {
+      margin: 18px 22px 10px 22px;
+    }
+    .content {
+      flex: 1;
+      position: relative;
+    }
+  }
+  &.device {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+}

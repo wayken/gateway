@@ -1,0 +1,80 @@
+@use "../common/variable.scss" as *;
+
+.a-zone {
+  width: 100%;
+  height: 100%;
+  .page {
+    flex: 1;
+    overflow: hidden;
+  }
+  .a-head {
+    .host {
+      > div {
+        color: #fff;
+        margin-left: 8px;
+        padding: 4px 10px;
+        border-radius: 3px;
+        background-color: var(--var-theme-primary-4);
+      }
+    }
+    .status {
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 3px;
+      &.is-actived {
+        background-color: #67c23a;
+      }
+      &.is-holded {
+        background-color: #f56c6c;
+      }
+      .name {
+        margin-left: 6px;
+      }
+    }
+  }
+  &.platform {
+    position: relative;
+  }
+  &.device {
+    padding: 4px 4px;
+  }
+  @import './zone/menu.scss';
+  @import './zone/common/form.scss';
+  @import './zone/zones.scss';
+  @import './zone/sequence.scss';
+  @import './zone/route.scss';
+  @import './zone/route/add.scss';
+  @import './zone/route/edit.scss';
+  @import './zone/upstream.scss';
+  @import './zone/upstream/add.scss';
+  @import './zone/upstream/edit.scss';
+  @import './zone/protection/rule.scss';
+  @import './zone/protection/rule/add.scss';
+  @import './zone/protection/rule/edit.scss';
+  @import './zone/protection/limit.scss';
+  @import './zone/protection/limit/add.scss';
+  @import './zone/protection/limit/edit.scss';
+  @import './zone/protection/limit/config.scss';
+  @import './zone/protection/semantics.scss';
+  @import './zone/cache/rule.scss';
+  @import './zone/cache/rule/add.scss';
+  @import './zone/cache/rule/edit.scss';
+  @import './zone/rewrite/action.scss';
+  @import './zone/rewrite/redirect.scss';
+  @import './zone/rewrite/redirect/add.scss';
+  @import './zone/rewrite/redirect/edit.scss';
+  @import './zone/rewrite/redirect/mvel.scss';
+  @import './zone/rewrite/redirect/pattern.scss';
+  @import './zone/rewrite/request.scss';
+  @import './zone/rewrite/request/add.scss';
+  @import './zone/rewrite/request/edit.scss';
+  @import './zone/rewrite/response.scss';
+  @import './zone/rewrite/response/add.scss';
+  @import './zone/rewrite/response/edit.scss';
+  @import './zone/plugin.scss';
+  @import './zone/plugin/metadata.scss';
+  @import './zone/page.scss';
+}

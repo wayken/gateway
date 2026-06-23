@@ -1,0 +1,16 @@
+.a-zone-protection-limit-config {
+  .el-row {
+    width: 100%;
+  }
+  .operation {
+    height: 100%;
+    .close {
+      font-size: 18px;
+      cursor: pointer;
+      margin-left: 12px;
+      &:hover {
+        color: var(--var-theme-primary-4);
+      }
+    }
+  }
+}

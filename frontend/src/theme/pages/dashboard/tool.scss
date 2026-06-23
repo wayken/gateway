@@ -1,0 +1,124 @@
+.a-tool {
+  flex: 1;
+  height: 100%;
+  &.platform {
+    flex: 1;
+    overflow: auto;
+    padding: 12px 12px;
+    .card {
+      display: flex;
+      cursor: pointer;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      color: var(--var-default-font-color);
+      background-color: var(--var-card-background-color);
+      .image {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-right: 12px;
+      }
+      .source {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .title {
+          flex: 1;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          .name {
+            font-size: 16px;
+            margin-top: 12px;
+          }
+          .label {
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            color: var(--var-theme-primary-4);
+            border: 1px solid var(--var-theme-primary-4);
+          }
+        }
+        .description {
+          color: #999;
+          margin-bottom: 22px;
+        }
+      }
+      &:hover {
+        .source {
+          .title {
+            .name {
+              color: var(--var-theme-primary-4);
+            }
+          }
+        }
+      }
+    }
+  }
+  &.device {
+    flex: 1;
+    overflow: auto;
+    padding: 12px 12px;
+    .card {
+      display: flex;
+      cursor: pointer;
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      color: var(--var-default-font-color);
+      background-color: var(--var-card-background-color);
+      .image {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-right: 12px;
+      }
+      .source {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .title {
+          flex: 1;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          .name {
+            font-size: 16px;
+            margin-top: 12px;
+          }
+          .label {
+            font-size: 12px;
+            padding: 2px 12px;
+            border-radius: 12px;
+            color: var(--var-theme-primary-4);
+            border: 1px solid var(--var-theme-primary-4);
+          }
+        }
+        .description {
+          color: #999;
+          margin-bottom: 12px;
+        }
+      }
+      &:hover {
+        .source {
+          .title {
+            .name {
+              color: var(--var-theme-primary-4);
+            }
+          }
+        }
+      }
+    }
+  }
+}

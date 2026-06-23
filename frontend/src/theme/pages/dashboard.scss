@@ -1,0 +1,39 @@
+@use "../common/variable.scss" as *;
+
+.a-dashboard {
+  width: 100%;
+  height: 100%;
+  .page {
+    flex: 1;
+    overflow: hidden;
+  }
+  &.platform {
+    position: relative;
+  }
+  &.device {
+    padding: 4px 4px;
+  }
+  @import './dashboard/menu.scss';
+  @import './dashboard/website.scss';
+  @import './dashboard/authority.scss';
+  @import './dashboard/audit.scss';
+  @import './dashboard/tool.scss';
+  @import './dashboard/tool/route.scss';
+  @import './dashboard/service.scss';
+  @import './dashboard/setting.scss';
+}
+
+@import './dashboard/touch.scss';
+@import './dashboard/website/add.scss';
+@import './dashboard/website/edit.scss';
+@import './dashboard/authority/user/add.scss';
+@import './dashboard/authority/user/edit.scss';
+@import './dashboard/authority/role/add.scss';
+@import './dashboard/authority/role/edit.scss';
+@import './dashboard/setting/ips/add.scss';
+@import './dashboard/setting/ips/edit.scss';
+@import './dashboard/setting/certificate/add.scss';
+@import './dashboard/setting/certificate/edit.scss';
+@import './dashboard/setting/auths/add.scss';
+@import './dashboard/setting/auths/edit.scss';
+@import './dashboard/setting/provider/add-provider.scss';
